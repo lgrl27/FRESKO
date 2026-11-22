@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Respaldo FresKo</title>
+</head>
+<body>
+  <h2>Respaldo de FresKo</h2>
+  <button id="descargar">Descargar respaldo</button>
+
+  <script>
+    document.getElementById("descargar").addEventListener("click", () => {
+      const datos = JSON.stringify({ ...localStorage }, null, 2);
+
+      const archivo = new Blob([datos], {
+        type: "application/json"
+      });
+
+      const enlace = document.createElement("a");
+      enlace.href = URL.createObjectURL(archivo);
+      enlace.download = "respaldo_fresko.json";
+      enlace.click();
+
+      URL.revokeObjectURL(enlace.href);
+    });
+  </script>
+</body>
+</html>
