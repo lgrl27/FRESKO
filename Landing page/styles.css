@@ -1,0 +1,2702 @@
+
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+}
+
+/* Pantalla de inicio de sesión */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: 28px;
+}
+
+.slogan {
+  font-size: 13px;
+  color: #777777;
+  margin-bottom: 28px;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  text-align: left;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: 2px solid #7dbb5c;
+  outline-offset: 1px;
+}
+
+/* Botones */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #7dbb5c;
+  color: white;
+  border: 1px solid #649e48;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #68a64c;
+}
+
+.btn-secondary {
+  margin-top: 12px;
+  background-color: white;
+  color: #333333;
+  border: 1px solid #dddddd;
+}
+
+.btn-secondary:hover {
+  background-color: #f4f4f4;
+}
+
+/* Recuperar contraseña */
+a {
+  display: inline-block;
+  margin-top: 16px;
+  color: #666666;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Mensajes de error */
+.error {
+  color: #d62828;
+  font-size: 12px;
+  text-align: left;
+  margin: 0;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .login-card {
+    max-width: 100%;
+  }
+}
+
+/* Mostrar únicamente la pantalla activa */
+.login-card[hidden] {
+  display: none;
+}
+
+/* Títulos secundarios */
+.login-card h2 {
+  font-size: 18px;
+  margin: 12px 0 24px;
+}
+
+/* Casilla de términos y condiciones */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  width: auto;
+  margin: 0;
+}
+
+/* PANEL PRINCIPAL */
+.dashboard[hidden] {
+  display: none;
+}
+
+.dashboard {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+body:has(.dashboard:not([hidden])) .login-container {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #f7f8f7;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 35px;
+}
+
+.sidebar-logo img {
+  width: 30px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  padding: 13px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.nav-item.active {
+  background: #e4f4e8;
+  color: #246b45;
+}
+
+.logout-btn {
+  margin-top: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  padding: 12px;
+}
+
+.dashboard-content {
+  flex: 1;
+  min-width: 0;
+  padding: 40px;
+}
+
+.dashboard-header h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #777;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.summary-card {
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.summary-card h3 {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.summary-card strong {
+  font-size: 32px;
+}
+
+.total {
+  background: #e6f5e9;
+  color: #16803c;
+}
+
+.warning {
+  background: #f9f5e8;
+  color: #b57c12;
+}
+
+.danger {
+  background: #f9eaea;
+  color: #c63b3b;
+}
+
+.food-section {
+  margin-top: 30px;
+}
+
+.food-section h3 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .nav-item {
+    white-space: nowrap;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MIS ALIMENTOS */
+.alimentos-section[hidden] {
+  display: none;
+}
+
+.alimentos-section {
+  margin-top: 35px;
+}
+
+.alimentos-header h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.alimentos-herramientas {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.alimentos-herramientas input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+#btnAgregarAlimento {
+  background: #80bd60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.filtros-alimentos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtro {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+
+.filtro.activo {
+  background: #80bd60;
+  color: white;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+.tabla-alimentos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-alimentos th,
+.tabla-alimentos td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla-alimentos th {
+  background: #f7f8f7;
+}
+
+@media (max-width: 700px) {
+  .alimentos-herramientas {
+    flex-direction: column;
+  }
+}
+#contenidoInicio[hidden] {
+  display: none;
+}
+
+
+/* OCULTAR LAS SECCIONES QUE NO ESTÁN ACTIVAS */
+#contenidoInicio[hidden],
+#seccionAlimentos[hidden] {
+  display: none !important;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.dashboard-content {
+  flex: 1;
+  min-width: 0;
+  padding: 30px 40px;
+}
+
+/* INICIO */
+#contenidoInicio {
+  width: 100%;
+}
+
+/* MIS ALIMENTOS */
+#seccionAlimentos {
+  width: 100%;
+  margin: 0;
+}
+
+/* BUSCADOR Y BOTÓN */
+#seccionAlimentos .alimentos-herramientas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#seccionAlimentos #buscarAlimento {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+
+#seccionAlimentos #btnAgregarAlimento {
+  width: auto;
+  flex-shrink: 0;
+  padding: 12px 20px;
+}
+
+/* FILTROS */
+#seccionAlimentos .filtros-alimentos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#seccionAlimentos .filtros-alimentos .filtro {
+  width: auto;
+  flex: 0 0 auto;
+  padding: 8px 15px;
+}
+
+/* TABLA */
+#seccionAlimentos .tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#seccionAlimentos .tabla-alimentos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 700px) {
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  #seccionAlimentos .alimentos-herramientas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #seccionAlimentos #buscarAlimento,
+  #seccionAlimentos #btnAgregarAlimento {
+    width: 100%;
+  }
+}
+
+/* FORMULARIO AGREGAR ALIMENTO */
+#formularioAlimento[hidden] {
+  display: none !important;
+}
+
+.formulario-alimento {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.formulario-alimento h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #222222;
+}
+
+#formAgregarAlimento {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#formAgregarAlimento label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333333;
+}
+
+#formAgregarAlimento input,
+#formAgregarAlimento select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+}
+
+#formAgregarAlimento input:focus,
+#formAgregarAlimento select:focus {
+  outline: 2px solid #7dbb5d;
+  outline-offset: 1px;
+}
+
+.formulario-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.formulario-botones button {
+  width: auto;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#cancelarAlimento {
+  background: #f3f4f6;
+  color: #333333;
+  border: 1px solid #dddddd;
+}
+
+#formAgregarAlimento button[type="submit"] {
+  background: #7dbb5d;
+  color: white;
+  border: none;
+}
+
+@media (max-width: 700px) {
+  .formulario-alimento {
+    padding: 20px;
+  }
+
+  .formulario-botones {
+    flex-direction: column;
+  }
+
+  .formulario-botones button {
+    width: 100%;
+  }
+}
+
+/* BOTÓN ELIMINAR ALIMENTO */
+.btn-eliminar {
+  width: auto;
+  padding: 8px 14px;
+  background: #fff1f1;
+  color: #c0392b;
+  border: 1px solid #f5c6c6;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background: #fbdada;
+}
+
+/* DISTRIBUCIÓN DEL FORMULARIO SEGÚN FIGMA */
+
+.formulario-alimento {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 25px;
+  border: none;
+  background: #ffffff;
+}
+
+.contenido-formulario-alimento {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.imagen-alimento {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#vistaPreviaAlimento {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#vistaPreviaAlimento[hidden] {
+  display: none;
+}
+
+.subir-imagen {
+  display: block;
+  padding: 12px;
+  border: 1px dashed #cccccc;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  color: #555555;
+  font-size: 13px;
+}
+
+#imagenAlimento {
+  width: 100%;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .contenido-formulario-alimento {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-alimento {
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+/* OCULTAR ELEMENTOS AL CAMBIAR DE VISTA */
+#seccionAlimentos [hidden] {
+  display: none !important;
+}
+/* OCULTAR SELECTOR NATIVO DE IMAGEN */
+#imagenAlimento {
+  display: none;
+}
+
+
+/* FOTOGRAFÍAS EN LA TABLA DE ALIMENTOS */
+
+.alimento-con-imagen {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.miniatura-alimento {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.alimento-con-imagen span {
+  font-weight: 500;
+}
+
+/* ACCIONES DE LA TABLA DE ALIMENTOS */
+
+.tabla-alimentos td:last-child {
+  white-space: nowrap;
+}
+
+.btn-editar,
+.btn-eliminar {
+  display: inline-block;
+  width: auto !important;
+  padding: 8px 14px;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.btn-editar {
+  background: #ffffff;
+  color: #333333;
+  border: 1px solid #dddddd;
+}
+
+.btn-editar:hover {
+  background: #f3f4f6;
+}
+
+.btn-eliminar {
+  background: #fff1f1;
+  color: #c0392b;
+  border: 1px solid #f5c6c6;
+}
+
+.btn-eliminar:hover {
+  background: #fbdada;
+}
+
+/* PANTALLA DETALLE DE ALIMENTO */
+
+#detalleAlimento[hidden] {
+  display: none !important;
+}
+
+.detalle-alimento {
+  width: 100%;
+  padding: 10px 0 30px;
+}
+
+.detalle-alimento h2 {
+  font-size: 24px;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+.detalle-contenido {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 35px;
+  align-items: start;
+}
+
+.detalle-imagen {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#detalleFoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#detalleFoto[hidden] {
+  display: none;
+}
+
+.detalle-informacion h3 {
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: #222;
+}
+
+#detalleCategoria {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.detalle-dato {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.detalle-dato strong {
+  font-size: 13px;
+  color: #777;
+  font-weight: 500;
+}
+
+.detalle-dato span {
+  font-size: 15px;
+  color: #333;
+}
+
+.detalle-acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 55px;
+}
+
+.detalle-acciones button {
+  width: 100%;
+  padding: 13px;
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#detalleEliminar {
+  grid-column: 1 / -1;
+  background: #fdecec;
+  color: #d32f2f;
+  border-color: #f8dddd;
+}
+
+#detalleVolver {
+  width: auto;
+  margin-top: 22px;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  color: #477e35;
+  cursor: pointer;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+
+@media (max-width: 700px) {
+  .detalle-contenido {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .detalle-imagen {
+    max-width: 320px;
+  }
+
+  .detalle-acciones {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+
+  #detalleEliminar {
+    grid-column: auto;
+  }
+}
+
+/* NOMBRE SELECCIONABLE DEL ALIMENTO */
+
+.nombre-alimento-boton {
+  display: inline-block;
+  width: auto !important;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nombre-alimento-boton:hover {
+  color: #477e35;
+  text-decoration: underline;
+}
+
+.nombre-alimento-boton:focus-visible {
+  outline: 2px solid #7dbd60;
+  outline-offset: 3px;
+}
+
+/* ETIQUETAS DE ESTADO DE LOS ALIMENTOS */
+
+.etiqueta-estado {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Fresco */
+.estado-fresco {
+  background-color: #E8F5E9;
+  color: #388E3C;
+}
+
+/* Pronto a vencer */
+.estado-por-vencer {
+  background-color: #FFF0DF;
+  color: #E87816;
+}
+
+/* Vencido */
+.estado-vencido {
+  background-color: #FDEBEC;
+  color: #E53935;
+}
+
+/* Consumido */
+.estado-consumido {
+  background-color: #F1F3F5;
+  color: #687076;
+}
+
+/* BOTÓN MARCAR COMO CONSUMIDO */
+
+#detalleConsumido {
+  background-color: #7DBD60;
+  color: white;
+  border: 1px solid #7DBD60;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#detalleConsumido:hover {
+  background-color: #68A94C;
+}
+
+/* CUANDO EL ALIMENTO YA ESTÁ CONSUMIDO */
+
+#detalleConsumido.consumido {
+  background-color: white;
+  color: #538A39;
+  border: 1px solid #7DBD60;
+}
+
+/* LISTA DE PRÓXIMOS A VENCER - INICIO */
+
+#listaProximos {
+  width: 100%;
+}
+
+.proximo-alimento {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.proximo-alimento img {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  max-width: 52px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.proximo-alimento > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.proximo-alimento strong {
+  font-size: 14px;
+  color: #222222;
+}
+
+.proximo-alimento p {
+  margin: 0;
+  font-size: 12px;
+  color: #888888;
+}
+
+/* FLECHAS Y VER TODOS EN INICIO */
+
+.proximo-clickeable {
+  cursor: pointer;
+}
+
+.proximo-clickeable:hover {
+  background-color: #F8FBF8;
+}
+/* Próximos a vencer: efecto hover en modo oscuro */
+body.modo-oscuro .proximo-clickeable:hover {
+  background-color: #345443;
+}
+
+body.modo-oscuro .proximo-alimento {
+  border-bottom-color: #405447;
+}
+
+body.modo-oscuro .proximo-alimento strong {
+  color: #ffffff;
+}
+
+body.modo-oscuro .proximo-alimento p,
+body.modo-oscuro .flecha-proximo {
+  color: #c5d8cb;
+}
+
+.flecha-proximo {
+  margin-left: auto;
+  font-size: 22px;
+  color: #888888;
+}
+
+.ver-todos {
+  display: block;
+  margin: 14px 0 0 auto;
+  padding: 6px 0;
+  border: none;
+  background: transparent;
+  color: #888888;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ver-todos:hover {
+  color: #538A39;
+}
+
+/* ICONOS EN DETALLE DE ALIMENTO */
+
+.detalle-dato strong {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #888888;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.detalle-dato .icono-detalle {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: #888888;
+}
+
+.detalle-dato > span {
+  display: block;
+  margin-top: 5px;
+  color: #333333;
+  font-size: 14px;
+}
+
+/* ICONOS DEL MENÚ LATERAL */
+
+.sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-align: left;
+}
+
+.sidebar .nav-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.sidebar .nav-item span {
+  font-size: inherit;
+}
+
+/* ICONO DE CERRAR SESIÓN */
+
+.sidebar .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-align: left;
+}
+
+.sidebar .logout-btn svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+/* ICONOS SUPERIORES DEL DASHBOARD */
+
+.dashboard-content {
+  position: relative;
+}
+
+.dashboard-top-icons {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  z-index: 10;
+}
+
+.top-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #888888;
+  cursor: pointer;
+}
+
+.top-icon-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.top-icon-btn:hover {
+  color: #538A39;
+}
+
+/* Evita que los títulos se superpongan con los iconos */
+.dashboard-header,
+.alimentos-header,
+.detalle-alimento > h2,
+.formulario-alimento > h2 {
+  padding-right: 90px;
+}
+
+/* PANTALLA ALERTAS */
+
+.alertas-section h2 {
+  margin-bottom: 24px;
+}
+
+.alertas-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.alerta-filtro {
+  padding: 9px 15px;
+  border: none;
+  border-radius: 4px;
+  background: #f5f5f5;
+  color: #777;
+  cursor: pointer;
+}
+
+.alerta-filtro.activo {
+  background: #7DBD60;
+  color: white;
+}
+
+.alerta-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.alerta-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.alerta-info {
+  flex: 1;
+}
+
+.alerta-info strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.alerta-info p {
+  margin: 0;
+  color: #888;
+  font-size: 12px;
+}
+
+.alerta-estado {
+  margin-left: auto;
+  padding: 5px 9px;
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.alerta-estado.por-vencer {
+  background: #FFF0DF;
+  color: #E88719;
+}
+
+.alerta-estado.vencido {
+  background: #FDEBEC;
+  color: #E53935;
+}
+
+@media (max-width: 600px) {
+  .alerta-item {
+    gap: 10px;
+  }
+
+  .alerta-estado {
+    font-size: 11px;
+  }
+}
+
+/* AJUSTAR FILTROS DE ALERTAS */
+
+.alertas-filtros {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.alertas-filtros .alerta-filtro {
+  display: inline-block;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* ===== PANTALLA COMPRAS ===== */
+
+.compras-section h2 {
+  margin-bottom: 24px;
+}
+
+/* Buscador y botón para agregar */
+.compras-herramientas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+#buscarCompra,
+#buscarProductoCompra {
+  padding: 12px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: white;
+  font-size: 14px;
+  outline-color: #7DBD60;
+}
+
+#buscarCompra {
+  flex: 1;
+  min-width: 0;
+}
+
+#btnAgregarCompra,
+#agregarProductoPersonalizado {
+  width: auto;
+  padding: 12px 18px;
+  background: #7DBD60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#btnAgregarCompra:hover,
+#agregarProductoPersonalizado:hover {
+  background: #69A84F;
+}
+
+/* Lista de compras */
+.compra-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.compra-item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #7DBD60;
+  cursor: pointer;
+}
+
+.compra-nombre {
+  flex: 1;
+  font-size: 14px;
+}
+
+.compra-item.comprado .compra-nombre {
+  text-decoration: line-through;
+  color: #999;
+}
+
+
+.compra-opciones {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #777;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* Vista para agregar productos */
+.compras-encabezado {
+  margin-bottom: 22px;
+}
+
+#volverListaCompras {
+  display: block;
+  width: auto;
+  border: none;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+#buscarProductoCompra {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 22px;
+}
+
+.catalogo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8e8e8;
+  cursor: pointer;
+}
+
+.catalogo-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.catalogo-nombre {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.catalogo-flecha {
+  color: #999;
+  font-size: 20px;
+}
+
+#agregarProductoPersonalizado {
+  margin-top: 22px;
+}
+
+@media (max-width: 600px) {
+  .compras-herramientas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #btnAgregarCompra {
+    width: 100%;
+  }
+}
+
+/* OCULTAR CORRECTAMENTE LAS PANTALLAS */
+
+[hidden] {
+  display: none !important;
+}
+
+/* CONTROL DE VISIBILIDAD DE COMPRAS */
+
+#seccionCompras[hidden],
+#vistaListaCompras[hidden],
+#vistaAgregarCompra[hidden] {
+  display: none !important;
+}
+
+/* NOMBRES DEL CATÁLOGO DE COMPRAS */
+
+#catalogoCompras .catalogo-nombre {
+  display: block;
+  flex: 1;
+  color: #222 !important;
+  font-size: 14px;
+  font-weight: 600;
+  visibility: visible;
+  opacity: 1;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* MENÚ DE OPCIONES EN COMPRAS */
+
+.compra-menu {
+  position: relative;
+  margin-left: auto;
+}
+
+.compra-menu-desplegable {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  min-width: 120px;
+  padding: 5px;
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.compra-menu-desplegable button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #d9534f;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.compra-menu-desplegable button:hover {
+  background: #fff0f0;
+}
+
+.compra-menu-desplegable[hidden] {
+  display: none !important;
+}
+
+/* PANTALLA DE RECETAS */
+
+.preparacion-section {
+  width: 100%;
+}
+
+.preparacion-section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#buscarReceta {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e1e5e2;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+#buscarReceta:focus {
+  border-color: #3a9b61;
+}
+
+.filtros-recetas {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.filtro-receta {
+  width: auto;
+  padding: 12px 22px;
+  border: 1px solid #e1e5e2;
+  border-radius: 8px;
+  background: #f5f6f5;
+  color: #555;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filtro-receta.activo {
+  background: #e4f5e9;
+  color: #24844a;
+  border-color: #b8e1c5;
+  font-weight: 600;
+}
+
+.lista-recetas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .lista-recetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .lista-recetas {
+    grid-template-columns: 1fr;
+  }
+
+  .filtros-recetas {
+    flex-wrap: wrap;
+  }
+}
+
+/* TARJETAS DE RECETAS */
+
+.tarjeta-receta {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.tarjeta-receta:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.receta-imagen-contenedor {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+}
+
+.receta-imagen-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.receta-favorito {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #333333;
+  font-size: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receta-informacion {
+  padding: 16px;
+}
+
+.receta-informacion h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #222222;
+}
+
+.receta-informacion p {
+  font-size: 13px;
+  color: #777777;
+  margin: 0;
+}
+.receta-favorito.seleccionado {
+  color: #e74c5b;
+}
+.tarjeta-receta[hidden] {
+  display: none !important;
+}
+
+/* DETALLE DE RECETA */
+
+#vistaDetalleReceta {
+  width: 100%;
+}
+
+#volverRecetas {
+  width: auto;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  color: #398b56;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+#vistaDetalleReceta h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.detalle-receta-contenido {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+#detalleRecetaImagen {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.detalle-receta-info {
+  min-width: 0;
+}
+
+.detalle-receta-info h3 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+#detalleRecetaTiempo {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.detalle-receta-pestanas {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detalle-receta-pestanas button {
+  width: auto;
+  padding: 12px 20px;
+  border: 1px solid #e1e5e2;
+  border-radius: 8px;
+  background: #f5f6f5;
+  color: #555;
+  cursor: pointer;
+}
+
+.detalle-receta-pestanas button.activo {
+  background: #e4f5e9;
+  color: #24844a;
+  border-color: #b8e1c5;
+  font-weight: 600;
+}
+
+#detalleRecetaTexto {
+  min-height: 180px;
+  margin-bottom: 24px;
+}
+
+#detalleRecetaTexto p {
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+
+#agregarRecetaPlanificador {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #7fc45b;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .detalle-receta-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  #detalleRecetaImagen {
+    height: 280px;
+  }
+}
+
+/* PLANIFICADOR SEMANAL */
+
+#vistaPlanificador {
+  width: 100%;
+}
+
+#vistaPlanificador h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+#volverDetalleReceta {
+  width: auto;
+  padding: 8px 0;
+  margin-bottom: 18px;
+  border: none;
+  background: transparent;
+  color: #398b56;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.planificador-semana {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.planificador-semana button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e1e5e2;
+  border-radius: 8px;
+  background: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+#rangoSemana {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.dias-planificador {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dia-planificador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e7e9e7;
+  border-radius: 12px;
+}
+
+.dia-planificador-fecha {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 110px;
+}
+
+.dia-planificador-fecha strong {
+  font-size: 15px;
+  color: #222;
+}
+
+.dia-planificador-fecha span {
+  font-size: 13px;
+  color: #777;
+}
+
+.agregar-receta-dia {
+  width: auto;
+  padding: 12px 18px;
+  border: 1px dashed #9acba7;
+  border-radius: 8px;
+  background: #f1faf3;
+  color: #318b51;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.agregar-receta-dia:hover {
+  background: #e4f5e9;
+}
+
+@media (max-width: 600px) {
+  .dia-planificador {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .dia-planificador-fecha {
+    min-width: 75px;
+  }
+
+  .agregar-receta-dia {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+/* RECETAS ASIGNADAS AL PLANIFICADOR */
+
+.receta-planificada {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.receta-planificada img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.receta-planificada strong {
+  font-size: 14px;
+  color: #222;
+}
+
+.receta-planificada p {
+  font-size: 13px;
+  color: #777;
+  margin: 6px 0 0;
+}
+
+@media (max-width: 600px) {
+  .dia-planificador {
+    flex-wrap: wrap;
+  }
+
+  .receta-planificada {
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  .agregar-receta-dia {
+    order: 3;
+  }
+}
+.eliminar-receta-planificada {
+  width: auto;
+  padding: 10px 14px;
+  border: 1px solid #f1c5c5;
+  border-radius: 8px;
+  background: #fff5f5;
+  color: #c44545;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* PANTALLA PERFIL */
+
+.perfil-section {
+  width: 100%;
+}
+
+#vistaPerfil h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.perfil-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #e4f5e9;
+  color: #24844a;
+  font-size: 25px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.perfil-datos h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.perfil-datos p {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.perfil-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 750px;
+}
+
+.perfil-opcion {
+  width: 100%;
+  padding: 17px 20px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #555;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.perfil-opcion:hover {
+  background: #f1f8f3;
+}
+
+.perfil-opcion.activo {
+  background: #e4f5e9;
+  color: #24844a;
+}
+
+@media (max-width: 600px) {
+  .perfil-opciones {
+    max-width: 100%;
+  }
+
+  .perfil-opcion {
+    padding: 15px;
+  }
+}
+
+/* PREFERENCIAS ALIMENTARIAS */
+
+#vistaPreferencias {
+  width: 100%;
+}
+
+#volverPerfil {
+  display: inline-block;
+  width: auto;
+  padding: 8px 0;
+  margin-bottom: 24px;
+  border: none;
+  background: transparent;
+  color: #398b56;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#vistaPreferencias h2 {
+  font-size: 24px;
+  margin: 0 0 18px;
+}
+
+#vistaPreferencias > p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 28px;
+}
+
+#formPreferencias {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 750px;
+}
+
+#formPreferencias label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+  cursor: pointer;
+}
+
+#formPreferencias input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #80c35d;
+  cursor: pointer;
+}
+
+#guardarPreferencias {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #80c35d;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#guardarPreferencias:hover {
+  background: #6eae4f;
+}
+/* INFORMACIÓN PERSONAL */
+#vistaInformacion {
+  max-width: 650px;
+  width: 100%;
+  margin: 0;
+}
+
+#volverPerfilInformacion {
+  background: none;
+  border: none;
+  color: #246B45;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 24px;
+  display: block;
+  width: fit-content;
+  margin-left: 0;
+}
+
+#vistaInformacion #volverPerfilInformacion {
+  margin: 0 0 24px 0;
+  text-align: left;
+}
+
+#vistaInformacion h2 {
+  color: #253B2F;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+#vistaInformacion > p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+#formInformacion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#formInformacion label {
+  color: #253B2F;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#formInformacion input {
+  padding: 13px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+#formInformacion input:focus {
+  outline: none;
+  border-color: #246B45;
+}
+
+#guardarInformacion {
+  background: #2E8B57;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#guardarInformacion:hover {
+  background: #267347;
+}
+/* ÍCONOS DE LAS OPCIONES DEL PERFIL */
+.perfil-opcion {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.perfil-opcion svg {
+  width: 20px;
+  height: 20px;
+  color: #246B45;
+  flex-shrink: 0;
+}
+
+/* PANTALLA DE NOTIFICACIONES */
+#vistaNotificaciones {
+  max-width: 650px;
+  width: 100%;
+  margin: 0;
+}
+
+#volverPerfilNotificaciones {
+  display: block;
+  width: fit-content;
+  margin: 0 0 24px 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #2E8B57;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+#vistaNotificaciones h2 {
+  color: #253B2F;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+#vistaNotificaciones > p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+#formNotificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notificacion-opcion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e5e9e5;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.notificacion-opcion span {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notificacion-opcion strong {
+  color: #253B2F;
+  font-size: 15px;
+}
+
+.notificacion-opcion small {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.notificacion-opcion input {
+  width: 19px;
+  height: 19px;
+  accent-color: #2E8B57;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+#guardarNotificaciones {
+  background: #2E8B57;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#guardarNotificaciones:hover {
+  background: #267347;
+}
+/* PANTALLA CONFIGURACIÓN */
+#vistaConfiguracion {
+  max-width: 650px;
+  width: 100%;
+  margin: 0;
+}
+
+#volverPerfilConfiguracion {
+  display: block;
+  width: fit-content;
+  margin: 0 0 24px 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #2E8B57;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+#vistaConfiguracion h2 {
+  color: #253B2F;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+#vistaConfiguracion > p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.configuracion-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.configuracion-opcion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  background: white;
+  border: 1px solid #e5e9e5;
+  border-radius: 12px;
+}
+
+.configuracion-opcion > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.configuracion-opcion strong {
+  color: #253B2F;
+  font-size: 15px;
+}
+
+.configuracion-opcion small {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#configModoOscuro {
+  width: 19px;
+  height: 19px;
+  accent-color: #2E8B57;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+/* MODO OSCURO DE FRESKO */
+
+/* Fondo principal */
+body.modo-oscuro,
+body.modo-oscuro .dashboard-content {
+  background-color: #202b26;
+  color: #f1f5f2;
+}
+
+/* Menú lateral */
+body.modo-oscuro .sidebar {
+  background-color: #2a3930;
+  border-color: #405447;
+}
+
+/* Textos y títulos */
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro p,
+body.modo-oscuro label,
+body.modo-oscuro strong,
+body.modo-oscuro small {
+  color: #e8f0ea;
+}
+
+/* Tarjetas de Configuración y Notificaciones */
+body.modo-oscuro .configuracion-opcion,
+body.modo-oscuro .notificacion-opcion {
+  background-color: #26352c;
+  border-color: #405347;
+}
+
+/* Textos dentro de las tarjetas */
+body.modo-oscuro .configuracion-opcion strong,
+body.modo-oscuro .notificacion-opcion strong {
+  color: #f1f5f2;
+}
+
+body.modo-oscuro .configuracion-opcion small,
+body.modo-oscuro .notificacion-opcion small {
+  color: #b8c9bd;
+}
+
+/* Campos de texto */
+body.modo-oscuro input:not([type="checkbox"]),
+body.modo-oscuro textarea,
+body.modo-oscuro select {
+  background-color: #26352c;
+  color: #ffffff;
+  border-color: #405347;
+}
+
+/* Botones del menú */
+body.modo-oscuro .sidebar button {
+  color: #e8f0ea;
+}
+
+/* Opciones de Perfil */
+body.modo-oscuro .perfil-opcion {
+  color: #e8f0ea;
+}
+/* CORRECCIONES DEL MODO OSCURO */
+
+/* Textos de la tabla de alimentos */
+body.modo-oscuro #seccionAlimentos table,
+body.modo-oscuro #seccionAlimentos td,
+body.modo-oscuro #seccionAlimentos th {
+  color: #e8f0ea;
+}
+
+/* Cabecera de la tabla */
+body.modo-oscuro #seccionAlimentos thead,
+body.modo-oscuro #seccionAlimentos th {
+  background-color: #26352c;
+  color: #f1f5f2;
+}
+
+/* Opción seleccionada del menú lateral */
+body.modo-oscuro .sidebar button.active,
+body.modo-oscuro .sidebar button.activo {
+  background-color: #417557;
+  color: #ffffff;
+}
+
+/* TARJETAS DE INICIO EN MODO OSCURO */
+/* TARJETAS DE INICIO EN MODO OSCURO */
+
+body.modo-oscuro .summary-card.total {
+  background-color: #285844;
+}
+
+body.modo-oscuro .summary-card.warning {
+  background-color: #79602e;
+}
+
+body.modo-oscuro .summary-card.danger {
+  background-color: #783e48;
+}
+
+/* Títulos y números de las tarjetas */
+body.modo-oscuro .summary-card h3,
+body.modo-oscuro .summary-card strong {
+  color: #ffffff;
+}
+/* TARJETAS DE RECETAS EN MODO OSCURO */
+
+body.modo-oscuro .tarjeta-receta {
+  background-color: #26352c;
+  border-color: #405347;
+}
+
+/* Textos dentro de las tarjetas */
+body.modo-oscuro .tarjeta-receta h3,
+body.modo-oscuro .tarjeta-receta h4,
+body.modo-oscuro .tarjeta-receta p,
+body.modo-oscuro .tarjeta-receta span {
+  color: #e8f0ea;
+}
+
+/* Efecto al pasar el mouse */
+body.modo-oscuro .tarjeta-receta:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+/* VISIBILIDAD DE AYUDA Y SOPORTE */
+
+#vistaAyuda[hidden] {
+  display: none !important;
+}
+
+#vistaAyuda:not([hidden]) {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+}
+/* DISEÑO DE AYUDA Y SOPORTE */
+
+#volverPerfilAyuda {
+  display: block;
+  width: fit-content;
+  margin: 0 0 24px 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #2E8B57;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#vistaAyuda h2 {
+  color: #253B2F;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+#vistaAyuda > p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.ayuda-contenido h3 {
+  color: #253B2F;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.ayuda-pregunta {
+  background: #ffffff;
+  border: 1px solid #e5e9e5;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 18px;
+}
+
+.ayuda-pregunta summary {
+  color: #253B2F;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ayuda-pregunta p {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* AYUDA EN MODO OSCURO */
+
+body.modo-oscuro .ayuda-pregunta {
+  background: #26352c;
+  border-color: #405347;
+}
+
+body.modo-oscuro #vistaAyuda h2,
+body.modo-oscuro .ayuda-contenido h3,
+body.modo-oscuro .ayuda-pregunta summary {
+  color: #e8f0ea;
+}
+
+body.modo-oscuro .ayuda-pregunta p {
+  color: #b8c9bd;
+}
+
+/* CORREGIR PRÓXIMOS A VENCER EN MODO OSCURO */
+
+body.modo-oscuro .dashboard-content .expiry-item {
+  background-color: #304438;
+  border-color: #496453;
+}
+
+body.modo-oscuro .dashboard-content .expiry-item,
+body.modo-oscuro .dashboard-content .expiry-item * {
+  color: #ffffff;
+}
+/* NOMBRES DE ALIMENTOS EN MODO OSCURO */
+
+body.modo-oscuro #seccionAlimentos tbody td:first-child {
+  color: #f1f5f2;
+}
+
+body.modo-oscuro #seccionAlimentos tbody td:first-child span,
+body.modo-oscuro #seccionAlimentos tbody td:first-child strong {
+  color: #f1f5f2;
+}
+/* NOMBRES DE ALIMENTOS EN MODO OSCURO */
+
+body.modo-oscuro .nombre-alimento-boton {
+  color: #f1f5f2;
+}
+
+body.modo-oscuro .nombre-alimento-boton:hover {
+  color: #a8e6a1;
+}
+/* OPCIONES DE PERFIL EN MODO OSCURO */
+
+body.modo-oscuro .perfil-opcion:hover {
+  background-color: #345443;
+  color: #ffffff;
+}
+
+body.modo-oscuro .perfil-opcion:hover span,
+body.modo-oscuro .perfil-opcion:hover svg {
+  color: #ffffff;
+}
+/* TEXTOS DE PERFIL EN MODO OSCURO */
+
+/* Títulos de las pantallas de Perfil */
+body.modo-oscuro #seccionPerfil h1,
+body.modo-oscuro #seccionPerfil h2,
+body.modo-oscuro #seccionPerfil h3 {
+  color: #ffffff;
+}
+
+/* Etiquetas de los campos */
+body.modo-oscuro #seccionPerfil label {
+  color: #e5f0e8;
+}
+
+/* Descripciones */
+body.modo-oscuro #seccionPerfil p,
+body.modo-oscuro #seccionPerfil small {
+  color: #bfcfc4;
+}
+
+/* Opciones del menú de Perfil */
+body.modo-oscuro .perfil-opcion,
+body.modo-oscuro .perfil-opcion span {
+  color: #f1f5f2;
+}
+/* FORMULARIO DE ALIMENTOS EN MODO OSCURO */
+
+body.modo-oscuro .formulario-alimento {
+  background-color: #2a3930;
+  border: 1px solid #405447;
+}
+
+/* Título */
+body.modo-oscuro .formulario-alimento h2 {
+  color: #ffffff;
+}
+
+/* Etiquetas */
+body.modo-oscuro #formAgregarAlimento label {
+  color: #e5f0e8;
+}
+
+/* Campos */
+body.modo-oscuro #formAgregarAlimento input,
+body.modo-oscuro #formAgregarAlimento select {
+  background-color: #34463b;
+  color: #ffffff;
+  border-color: #587060;
+}
+
+/* Botón para subir imagen */
+body.modo-oscuro .subir-imagen {
+  color: #e5f0e8;
+  border-color: #7b9b84;
+  background-color: #34463b;
+}
+
+/* Botón Cancelar */
+body.modo-oscuro #cancelarAlimento {
+  background-color: #405448;
+  color: #ffffff;
+  border-color: #587060;
+}
+/* CATÁLOGO DE COMPRAS EN MODO OSCURO */
+
+/* Nombres de productos */
+body.modo-oscuro #catalogoCompras .catalogo-nombre {
+  color: #f1f5f2 !important;
+}
+
+/* Buscador */
+body.modo-oscuro #buscarProductoCompra {
+  background-color: #34463b;
+  color: #ffffff;
+  border: 1px solid #587060;
+}
+
+body.modo-oscuro #buscarProductoCompra::placeholder {
+  color: #bfcfc4;
+}
+
+/* Botón Volver */
+body.modo-oscuro #volverListaCompras {
+  color: #b8d9c1;
+}
+
+/* Separadores de productos */
+body.modo-oscuro .catalogo-item {
+  border-bottom-color: #405447;
+}
+
+/* Efecto al pasar el mouse */
+body.modo-oscuro .catalogo-item:hover {
+  background-color: #304438;
+}
+/* PLANIFICADOR SEMANAL EN MODO OSCURO */
+
+/* Tarjetas de cada día */
+body.modo-oscuro .dia-planificador {
+  background-color: #304438;
+  border-color: #496453;
+}
+
+/* Nombre del día */
+body.modo-oscuro .dia-planificador-fecha strong {
+  color: #ffffff;
+}
+
+/* Número del día */
+body.modo-oscuro .dia-planificador-fecha span {
+  color: #c5d8cb;
+}
+
+/* Nombre de la receta */
+body.modo-oscuro .receta-planificada strong {
+  color: #ffffff;
+}
+
+/* Tipo de comida */
+body.modo-oscuro .receta-planificada p {
+  color: #c5d8cb;
+}
+
+/* Flechas para cambiar de semana */
+body.modo-oscuro .planificador-semana button {
+  background-color: #405a49;
+  border-color: #587060;
+  color: #ffffff;
+}
+/* DETALLE DE ALIMENTO EN MODO OSCURO */
+
+/* Nombre del alimento */
+body.modo-oscuro #detalleNombre {
+  color: #ffffff;
+}
+
+/* Categoría */
+body.modo-oscuro #detalleCategoria {
+  color: #bfcfc4;
+}
+
+/* Etiquetas: Cantidad, Fecha, Estado, etc. */
+body.modo-oscuro .detalle-dato strong {
+  color: #e5f0e8;
+}
+
+/* Valores de los datos */
+body.modo-oscuro .detalle-dato span {
+  color: #c5d8cb;
+}
+
+/* Botón para volver */
+body.modo-oscuro #detalleVolver {
+  color: #a8e6a1;
+}
+/* BUSCADOR DE LISTA DE COMPRAS EN MODO OSCURO */
+
+body.modo-oscuro #seccionCompras input[type="text"],
+body.modo-oscuro #seccionCompras input[type="search"] {
+  background-color: #34463b;
+  color: #ffffff;
+  border: 1px solid #587060;
+  caret-color: #ffffff;
+}
+
+body.modo-oscuro #seccionCompras input::placeholder {
+  color: #bfcfc4;
+}
